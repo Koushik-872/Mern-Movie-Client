@@ -186,4 +186,40 @@ button:focus-visible {
   html {
     background-color: #000;
   }
+  /* ================================
+   MOBILE & BROWSER UI HARD FIX
+   (Prevents white boxes on buttons)
+================================ */
+
+/* Force transparent UI elements */
+button,
+a,
+input,
+textarea {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  -webkit-appearance: none;
+  appearance: none;
+  color: inherit;
+}
+
+/* Fix SVG icons inside buttons (hamburger, search, logout) */
+button svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Prevent mobile tap white flash */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent autofill white background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px black inset !important;
+  -webkit-text-fill-color: white !important;
+}
 }
