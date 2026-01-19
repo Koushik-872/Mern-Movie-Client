@@ -65,19 +65,23 @@ export const Movies: React.FC = () => {
     <div className="min-h-screen bg-black text-white">
       <Navbar onSearch={handleSearch} />
       <Sidebar />
-      
-      <main className="ml-64 pt-20 p-8 space-y-6">
-        <div className="flex items-center justify-between">
+
+      {/* MAIN CONTENT */}
+      <main
+        className="pt-20 p-4 sm:p-8 space-y-6
+                   md:ml-64" // only add left margin on medium+ screens
+      >
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <h1 className="text-3xl font-bold">
             {search ? `Search Results: "${search}"` : genre ? `Genre: ${genre}` : 'All Movies'}
           </h1>
 
           {!search && !genre && (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg">
                 <Filter size={18} />
                 <span className="text-sm">Sort by:</span>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   {(['rating', 'title', 'releaseDate'] as const).map((field) => (
                     <button
                       key={field}
@@ -106,7 +110,7 @@ export const Movies: React.FC = () => {
             </div>
           )}
         </div>
-        
+
         {loading ? (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
@@ -122,7 +126,7 @@ export const Movies: React.FC = () => {
             </div>
 
             {!search && !genre && totalPages > 1 && (
-              <div className="flex justify-center gap-2 mt-8">
+              <div className="flex justify-center gap-2 mt-8 flex-wrap">
                 <button
                   onClick={() => setPage(p => Math.max(1, p - 1))}
                   disabled={page === 1}

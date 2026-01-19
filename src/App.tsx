@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./modules/Home/Home";
 import { Movies } from "./modules/movies/Movies";
 import { Latest } from "./modules/movies/Latest";
-import { MyList } from "./modules/movies/MyList";
 import { MovieDetails } from "./modules/movies/MovieDetails";
 import { AdminPanel } from "./modules/admin/AdminPanel";
 
@@ -24,10 +23,6 @@ function App() {
     {
       path: "/latest",
       element: <Latest/>,
-    },
-    {
-      path: "/my-list",
-      element: <MyList/>,
     },
     {
       path: "/admin",
