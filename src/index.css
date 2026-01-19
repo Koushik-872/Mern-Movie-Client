@@ -186,10 +186,10 @@ button:focus-visible {
   html {
     background-color: #000;
   }
-  /* ================================
+ /*
    MOBILE & BROWSER UI HARD FIX
    (Prevents white boxes on buttons)
-================================ */
+*/
 
 /* Force transparent UI elements */
 button,
